@@ -6,7 +6,7 @@ A Cloud Function that returns Nicolas Cage's filmography.
 
 ## API Reference
 
-#### Return the Nicolas Cage's complete filmography
+#### Return Nicolas Cage's complete filmography
 
 ```
   GET https://api.nicolascage.app/filmography
