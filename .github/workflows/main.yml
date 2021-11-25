@@ -1,0 +1,23 @@
+name: Deploy Cloud Function
+
+on:
+  push:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - id: deploy
+      uses: google-github-actions/deploy-cloud-functions@main
+      with:
+        name: filmography
+        runtime: python39
+        timeout: 540
+        entry_point: get_films
+        credentials: ${{secrets.GCP_SA_KEY}}
+        env_vars: TMDB_API_KEY=${{secrets.TMDB_API_KEY}}
